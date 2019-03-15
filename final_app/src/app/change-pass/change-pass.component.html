@@ -1,0 +1,45 @@
+<!-- This component is the fourth function on the side bar which can be navigated to by clicking the button on side bar;
+Users need to input their target password and rewrite them on the next textarea with clicking the submit button;
+By creating this new password, the user can use this password to login this system; -->
+
+
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-2 sidebar">
+      <app-sider></app-sider>
+    </div>
+    <div class="col-xs-6 col-md-10 main">
+      <h1 class="page-header">Change Password</h1>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <div class="form-group row">
+            <label for="staticEmail" class="col-sm-3 col-form-label">Username</label>
+            <div class="col-sm-9">
+              <input type="text" readonly="" class="form-control-plaintext" id="staticUsername" [value]= "nowusername">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="staticEmail" class="col-sm-3 col-form-label">Email</label>
+            <div class="col-sm-9">
+              <input type="text" readonly="" class="form-control-plaintext" id="staticEmail" [value]="nowemail">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="Password1">Password</label>
+            <input type="password" class="form-control" id="Password1" [(ngModel)] = "Password1" placeholder="Enter Password">
+          </div>
+          <div class="form-group">
+            <label for="Password2">Password</label>
+            <input type="password" class="form-control" id="Password2" [(ngModel)] = "Password2" placeholder="Enter Password Again">
+          </div>
+          <button type="button" class="btn btn-success navbar-right" (click) = "checkpwdmatch()">Submit</button>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

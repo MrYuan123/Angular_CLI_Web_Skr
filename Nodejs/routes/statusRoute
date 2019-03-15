@@ -1,0 +1,19 @@
+var express = require('express');
+var router = express.Router();
+
+/* GET home page. */
+statuslist = [];
+router.get('/', function(req, res, next) {
+    if(statuslist.length == 0){
+        for(let m = 0; m < 100; m ++){
+            statuslist.push({id: m+"", Name:m+"", Time: m+"", Memory: ""+Math.round(Math.random()*1000), Speed: ""+Math.round(Math.random()*1000), Temperature: ""+Math.round(Math.random()*150) });
+        }
+    }
+    else{
+        statuslist.shift();
+        statuslist.push({id: "12", Name:"122", Time: "1111", Memory: ""+ Math.round(Math.random()*1000), Speed: ""+Math.round(Math.random()*1000), Temperature: ""+Math.round(Math.random()*150) });
+    }
+    res.send(statuslist);
+});
+
+module.exports = router;

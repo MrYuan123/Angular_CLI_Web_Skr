@@ -1,0 +1,66 @@
+<!-- This component is the third function on the side bar which can be navigated to by clicking the button on side bar;
+Users need to enter the device ID, device name, device location and select a device type to create a new device;
+The device ID should not be duplicate, and each textarea should not be blank; -->
+
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-2 sidebar">
+      <app-sider></app-sider>
+    </div>
+    <div class="col-xs-6 col-md-10 main">
+      <h1 class="page-header">Add Device</h1>
+      <div class="row">
+        <div class="col-md-4">.</div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="col-form-label" for="inputDefault">Id</label>
+            <input type="text" class="form-control" placeholder="Enter Id" id="inputId" [(ngModel)]="inputId" #devicesID />
+          </div>
+
+          <div class="form-group">
+            <label class="col-form-label" for="inputDefault">Name</label>
+            <input type="text" class="form-control" placeholder="Enter Name" id="inputName" [(ngModel)]="inputName" #Name />
+          </div>
+
+          <div class="form-group">
+            <label for="exampleSelect1">Device Type</label>
+            <select class="form-control" id="location" [(ngModel)]='inputLocation' #Location>
+              <option></option>
+              <option>Los Angeles</option>
+              <option>Phoenix</option>
+              <option>Detroit</option>
+              <option>Pittsburg</option>
+              <option>Washington</option>
+              <option>New York</option>
+              <option>Boston</option>
+              <option>Houston</option>
+              <option>Denver</option>
+            </select>
+            <!--<label class="col-form-label" for="inputDefault">Location</label>-->
+            <!--<input type="text" class="form-control" placeholder="Enter Location" id="inputLocation" [(ngModel)]="inputLocation" #Location />-->
+          </div>
+
+          <div class="form-group">
+            <label for="exampleSelect1">Device Type</label>
+            <select class="form-control" id="exampleSelect1"[(ngModel)]='inputKind' #Type>
+              <option></option>
+              <option>Web Server</option>
+              <option>Cloud Server</option>
+              <option>Agriculture Monitor</option>
+              <option>Satellite</option>
+              <option>Factory Monitor</option>
+              <option>Traffic Camera Monitor</option>
+              <option>Fire Wall</option>
+            </select>
+          </div>
+          <button type="button" class="btn btn-success navbar-right" (click)="submit(devicesID.value, Name.value, Type.value, Location.value)">Submit</button>
+        </div>
+
+        <div class="col-md-4">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

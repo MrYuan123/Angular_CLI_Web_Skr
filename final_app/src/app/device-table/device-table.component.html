@@ -1,0 +1,55 @@
+<!-- This component is the second function on the side bar which can be navigated to by clicking the button on side bar;
+Use the function *ngFor to travers all the devices element in the list and print them out on the table;
+Users can delete each devices or see the detials of each device and decide which device need to be deleted; -->
+
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-2 sidebar">
+      <app-sider></app-sider>
+    </div>
+    <div class="col-xs-6 col-md-10 main">
+      <h1 class="page-header">Device Table</h1>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Location</th>
+            <th>Operation</th>
+          </tr>
+          </thead>
+          <tbody>
+          <!--<tr>-->
+            <!--<td>1,001</td>-->
+            <!--<td>Lorem</td>-->
+            <!--<td>ipsum</td>-->
+            <!--<td>dolor</td>-->
+            <!--<button type="button" class="btn btn-info">Details</button>-->
+            <!--<button type="button" class="btn btn-secondary">Delete</button>-->
+          <!--</tr>-->
+          <!--<tr>-->
+            <!--<td>1,001</td>-->
+            <!--<td>Lorem</td>-->
+            <!--<td>ipsum</td>-->
+            <!--<td>dolor</td>-->
+            <!--<button type="button" class="btn btn-info">Details</button>-->
+            <!--<button type="button" class="btn btn-secondary">Delete</button>-->
+          <!--</tr>-->
+          <tr *ngFor="let devices of devicesArr">
+            <td>{{devices.id}}</td>
+            <td>{{devices.name}}</td>
+            <td>{{devices.deviceType}}</td>
+            <td>{{devices.location}}</td>
+            <button type="button" class="btn btn-info" routerLink="/status_table">Details</button>
+            <button type="button" class="btn btn-secondary" (click)="deleteD(devices)">Delete</button>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

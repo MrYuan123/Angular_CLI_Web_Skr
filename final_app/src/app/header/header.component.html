@@ -1,0 +1,41 @@
+<!-- Use bootstrap as the structure frame to build the header;
+Header contains the system name with a unique logo, a search textarea to search target devices and a tool bar with the profile picture；
+The color of the header make the whole system seams simple and practical;
+The tool bar is a dropdown bar which is also used in bootstrap; -->
+
+<nav class="navbar navbar-inverse navbar-expand-xl navbar-dark">
+  <div class="navbar-header d-flex col">
+    <a class="navbar-brand" routerLink="/index"><i class="fa fa-cube"></i>Remote IOT <b>System</b></a >
+    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle navbar-toggler ml-auto">
+      <span class="navbar-toggler-icon"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+  <!-- Collection of nav links, forms, and other content for toggling -->
+  <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+    <form class="navbar-form form-inline">
+      <div class="input-group search-box">
+        <input type="text" id="search" class="form-control" #box (keyup.enter)="onEnter(box.value)" [(ngModel)]="searchbox" placeholder="Search here...">
+        <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
+      </div>
+    </form>
+    <ul class="nav navbar-nav navbar-right ml-auto">
+      <li class="nav-item dropdown">
+        <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action">
+          <img src="../../assets/profile.jpg" class="avatar" alt="Avatar">{{nowuser}}</a >
+        <ul class="dropdown-menu">
+          <!--<li><a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a ></li>-->
+          <!--<li><a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Calendar</a ></li>-->
+          <li><a href="#" class="dropdown-item" routerLink="/change"><i class="fa fa-sliders"></i> Settings</a ></li>
+          <!-- <li class="divider dropdown-divider"></li> -->
+          <li><a href="#" class="dropdown-item" (click)="outOP()" routerLink="/login"><i class="material-icons">&#xE8AC;</i> Logout</a ></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- <a class="navbar-brand" href="/">IOT Management System</a >
+<button type="button" class="btn btn-secondary text-right" routerLink="/login" role="button">Logout</button> -->

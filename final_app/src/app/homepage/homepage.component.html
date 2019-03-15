@@ -1,0 +1,26 @@
+<!-- Define the main frame of the IOT system web page;
+Add the header, sidebar, login dashboard and footer at the same time;
+Use data binding to show the login username on the dashboard;
+Add a button for clicking inorder to jump to the target devices component; -->
+
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-2 sidebar">
+      <app-sider></app-sider>
+    </div>
+    <div class="col-xs-6 col-md-10 main">
+      <h1 class="page-header">Dashboard</h1>
+      <div class="jumbotron">
+        <h1 class="display-3">Hello, {{username}}!</h1>
+        <p class="lead">Welcome to the remote device management system, we are happy to serve you for your devices.</p>
+        <hr class="my-4">
+        <p>Users are gods.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" routerLink="/device_table" role="button">Device Page</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

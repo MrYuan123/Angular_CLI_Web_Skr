@@ -1,0 +1,11 @@
+var express = require('express');
+var router = express.Router();
+var devicecontroller = require('../controllers/deviceController');
+
+/* GET home page. */
+router.route('/').get(devicecontroller.deviceList)
+                 .post(devicecontroller.addDevice);
+router.post('/delete', devicecontroller.deleteDevice);
+router.post('/detail', devicecontroller.getDevices);
+
+module.exports = router;

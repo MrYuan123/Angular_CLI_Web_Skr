@@ -1,0 +1,61 @@
+var express = require('express');
+// var router = express.Router();
+var Account = require("../models/accountModel");
+
+exports.accountList = function(req, res){
+    let resultCallback = function (err, accounts) {
+        //throwError(err);
+        res.json(accounts);
+        res.end();
+    };
+    Account.find({}, resultCallback);
+};
+
+exports.accountDetail = function (req, res) {
+    let resultCallback = function (err, accounts) {
+        //throwError(err);
+        res.json(accounts);
+        res.end();
+    };
+    Account.find({username:req.param('username')}, resultCallback);
+};
+
+exports.changePassword = function(req, res){
+    let resultCallback = function (err) {
+        //throwError(err);
+        if(err){
+            console.log(err);
+            res.send(false);
+            res.end();
+        }else{
+            console.log(err);
+            res.send(true);
+            res.end();
+        }
+
+    };
+    Account.findByIdAndUpdate(req.param('_id'),{password:req.param('password')}, resultCallback);
+    //Account.find({set:{password:req.param('password')}}, resultCallback);
+};
+
+exports.addAccount = function (req, res) {
+    // console.log(req.body['username']);
+    let newAccount = Object.assign({}, req.body);
+
+    var account = new Account(newAccount);
+
+    account.save((err)=>{ //添加
+        if(err){
+            console.log('save account: Failed!' + err);
+            res.send(false);
+            res.end();
+        }else{
+            console.log('save account: Successfully!');
+            res.send(true);
+            res.end;
+        }
+
+ });
+    // console.log(req.param('name'));
+    // res.send("post: " + req.param('name'));
+};

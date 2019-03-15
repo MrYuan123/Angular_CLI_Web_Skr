@@ -1,0 +1,61 @@
+var express = require('express');
+// var router = express.Router();
+var Device = require("../models/deviceModel");
+
+exports.deviceList = function(req, res){
+    let resultCallback = function (err, devices) {
+        //throwError(err);
+        res.json(devices);
+        res.end();
+    };
+    Device.find({}, resultCallback);
+};
+
+exports.getDevices = function(req, res){
+    let resultCallback = function (err, devices) {
+        //throwError(err);
+        res.json(devices);
+        res.end();
+    };
+    Device.find({user_id : req.param('user_id')}, resultCallback);
+}
+
+exports.deleteDevice = function(req, res){
+    console.log("ok.......................");
+    let resultCallback = function (err) {
+        if(err){
+            console.log('Delete device: Failed!' + err);
+            res.send(false);
+            res.end();
+        }else{
+            console.log('Delete device: Successfully!');
+            res.send(true);
+            res.end;
+        }
+    };
+    Device.deleteOne({_id: req.param('_id')}, resultCallback);
+};
+
+exports.addDevice = function (req, res) {
+    var device = Device({
+        id: req.param('id'),
+        name: req.param('name'),
+        location: req.param('location'),
+        deviceType: req.param('deviceType'),
+        user_id: req.param('user_id')
+    });
+
+    device.save((err)=>{ //添加
+        if(err){
+            console.log('save device: Failed!' + err);
+            res.send(false);
+            res.end();
+        }else{
+            console.log('save device: Successfully!');
+            res.send(true);
+            res.end;
+        }
+
+    });
+
+};

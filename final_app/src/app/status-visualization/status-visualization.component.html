@@ -1,0 +1,18 @@
+<!-- This component is the fifth function on the side bar which can be navigated to by clicking the button on side bar;
+The echarts API is used in this component to show the data changing trends;
+Some basic display functions are included with the echarts API; -->
+
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-2 sidebar">
+      <app-sider></app-sider>
+    </div>
+    <div class="col-xs-6 col-md-10 main">
+      <!--<div echarts [options] = "option" [loading]="showloading" class="demo-chart"></div>-->
+      <div echarts [(options)] = "option2" [loading]="showloading" class="demo-chart"></div>
+      <div echarts [(options)] = "option3" [loading]="showloading" class="demo-chart"></div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

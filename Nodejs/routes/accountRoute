@@ -1,0 +1,12 @@
+var express = require('express');
+var router = express.Router();
+var account_controller = require('../controllers/accountController');
+
+/* GET home page. */
+router.route('/').get(account_controller.accountList)
+                 .post(account_controller.addAccount)
+
+router.post('/change', account_controller.changePassword);
+router.post('/detail',account_controller.accountDetail);
+
+module.exports = router;

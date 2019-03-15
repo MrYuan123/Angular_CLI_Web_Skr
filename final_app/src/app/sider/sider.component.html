@@ -1,0 +1,24 @@
+<!-- The sider component contains multiple tags which can navigate to different target components;
+The navigate tags contains one A tags and one LI tages, all the tags are listening to the click action; -->
+<div class="list-group">
+  <div class="text-center">
+    <img [src]="url" width="150" height="150" class="img-circle" alt="Generic placeholder thumbnail">
+    <input type='file' (change)="readUrl($event)">
+    <h4>{{nowuser}}</h4>
+  </div>
+  <!-- <div class="formCenter" >
+  < img [src]="{{imgUrl}}" alt="图片" width="150" height="150" title="图片" class="form-control">
+  <input type="file" accept="image/.jpg, image/.png" (change)="fileChange($event)" class="fileInput">
+  </div> -->
+
+  <a routerLink="/index" class="list-group-item list-group-item-action"><li class="glyphicon glyphicon-th-list">&nbsp;</li>Dashboard</a>
+    <a routerLink="/device_table" class="list-group-item list-group-item-action"><li class="glyphicon glyphicon-list-alt">&nbsp;</li>Devices Table</a>
+    <a routerLink="/add" class="list-group-item list-group-item-action"><li class="glyphicon glyphicon-plus">&nbsp;</li>Add Devices</a>
+    <a routerLink="/change" class="list-group-item list-group-item-action"><li class="glyphicon glyphicon-open">&nbsp;</li>Change Passoword</a>
+    <a routerLink="/status_view" class="list-group-item list-group-item-action"><li class="glyphicon glyphicon-eye-open">&nbsp;</li>Status Monitor</a>
+    <a routerLink="/location_visualization" class="list-group-item list-group-item-action"><li class="glyphicon glyphicon-map-marker">&nbsp;</li>Location Visualization</a>
+    <a routerLink="/status_table" class="list-group-item list-group-item-action"><li class="glyphicon glyphicon-signal">&nbsp;</li>Status Table</a>
+</div>
+
+
+

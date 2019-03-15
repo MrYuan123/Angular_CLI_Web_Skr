@@ -1,0 +1,47 @@
+<!-- This component is the sixth function on the side bar which can be navigated to by clicking the button on side bar;
+THis component is inserted with a Google map API to show the location of each devices;
+By using this function, users can have a more intuitive understanding of their devices; -->
+
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-2 sidebar">
+      <app-sider></app-sider>
+    </div>
+    <div class="col-xs-6 col-md-10 main">
+      <h1 class="page-header">Location-Visualization</h1>
+      <div class="row">
+        <!--<div class="col-xs-2"></div>-->
+        <div class="col-xs-8">
+        <!--<agm-map [latitude]="lat" [longitude]="lng">-->
+        <!--<agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>-->
+        <!--</agm-map>-->
+        <!--</div>-->
+          <div style="height: 500px;width: 900px;" >
+            <baidu-map ak="8azVgQbZR9irKHBOsqMzi8CAT7l1gtjt" [options]="opts"  (onMarkerClicked)="clickMarker($event)" (onMapLoaded)="loadMap($event)">
+              <!--<marker [point]="point" [options]="markOpts" (loaded)="" (clicked)=""></marker>-->
+              <marker *ngFor="let marker of markers"  [point]="marker.point" [options]="marker.options" (onMarkerClicked)="clickMarker($event)">
+                <!--<agm-info-window>-->
+                <!--<strong>InfoWindow content</strong>-->
+                <!--</agm-info-window>-->
+              </marker>
+              <!--导航控件-->
+              <control type="navigation" [options]="controlOpts"></control>
+              <!--地图全景控件-->
+              <control type="overviewmap" [options]="overviewmapOpts"></control>
+              <!--比例尺-->
+              <control type="scale" [options]="scaleOpts"></control>
+              <!--地图类型-->
+              <control type="maptype" [options]="mapTypeOpts"></control>
+
+              <control type="geolocation" [options]="geolocationOpts" (click)='onClick()'>
+              </control>
+            </baidu-map>
+          </div>
+        <div class="col-xs-2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<app-footer></app-footer>

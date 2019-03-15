@@ -1,0 +1,38 @@
+<!-- This component is used to provide an interface for users who have already registered an account for login;
+Users need to type in both correct username and password to get into the information interface;
+The whole structure is simple and efficient, the background picture will change with times; -->
+
+
+<div class = "backgroundset">
+  <div class = "form">
+    <ul class = "tab-group">
+      <li class = "tab active">
+        <a routerLink = "/login">Login</a>
+      </li>
+
+      <li class = "tab">
+        <a routerLink = "/register" style="background-color: #a0b3b0">Register</a>
+      </li>
+    </ul>
+
+    <div class = "tab-content">
+      <form action = "/login/" method = "post">
+        <div class = "field-wrap">
+          <label>
+            <span class = "req"></span>
+          </label>
+          <input type = "text" id = "username" name = "username" placeholder = "Name" [(ngModel)] = "inputusername" required autocomplete = "off"/>
+        </div>
+
+        <div class = "field-wrap">
+          <label>
+            <span class = "req"></span>
+          </label>
+          <input type = "password" id = "password" name = "password" placeholder = "Password" [(ngModel)] = "inputpassword" required autocomplete = "off"/>
+        </div>
+        <button id = "but1" class = "button button-block" (click) = "checklogin()" >Login</button>
+      </form>
+    </div>
+  </div>
+</div>
+

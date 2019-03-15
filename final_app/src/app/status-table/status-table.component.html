@@ -1,0 +1,68 @@
+<!-- The status table is detached from the devices table;
+This component is the seventh function on the side bar which can be navigated to by clicking the button on side bar;
+By using the data binding, the table can be connected to the random data and show them on the web page; -->
+
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-2 sidebar">
+      <app-sider></app-sider>
+    </div>
+    <div class="col-xs-6 col-md-10 main">
+      <h1 class="page-header">Status Table</h1>
+      <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8">
+          <table class="table table-hover">
+            <tr>
+              <th>#Id</th>
+              <th>#Name</th>
+              <th>#Time</th>
+              <th>#Temperature(F)</th>
+              <th>#Memory(GB)</th>
+              <th>#Speed(MBPS)</th>
+            </tr>
+            <tr *ngFor="let status of statusArr">
+              <td>{{status.id}}</td>
+              <td>{{status.Name}}</td>
+              <td>{{status.Time}}</td>
+              <td>{{status.Temperature}}</td>
+              <td>{{status.Memory}}</td>
+              <td>{{status.Speed}}</td>
+            </tr>
+            <!--<tr>-->
+              <!--<td>2</td>-->
+              <!--<td>2</td>-->
+              <!--<td>2</td>-->
+              <!--<td>2</td>-->
+              <!--<td>2</td>-->
+              <!--<td>2</td>-->
+              <!--<td>2</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+              <!--<td>3</td>-->
+              <!--<td>3</td>-->
+              <!--<td>3</td>-->
+              <!--<td>3</td>-->
+              <!--<td>3</td>-->
+              <!--<td>3</td>-->
+              <!--<td>3</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+              <!--<td>4</td>-->
+              <!--<td>4</td>-->
+              <!--<td>4</td>-->
+              <!--<td>4</td>-->
+              <!--<td>4</td>-->
+              <!--<td>4</td>-->
+              <!--<td>4</td>-->
+            <!--</tr>-->
+          </table>
+        </div>
+        <div class="col-xs-2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
+

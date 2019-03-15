@@ -1,0 +1,54 @@
+<!-- The register component is parallel to the login component which saves users personal information,
+including username, email address and password;
+The email input text has already added the validation for email address which should contain @ in the input string;
+In confirm password part, users need to type same password in that input text to insure the success of the register process; -->
+
+<div class="backgroundset">
+    <div class = "form">
+      <ul class = "tab-group">
+        <li class = "tab">
+          <a routerLink = "/login" style="background-color: #a0b3b0">Login</a>
+        </li>
+
+        <li class = "tab">
+          <a routerLink = "/register" >Register</a>
+        </li>
+      </ul>
+
+      <div class = "tab-content">
+        <form action = "/register/" method = "post">
+          <div class = "field-wrap">
+            <label>
+              <span class = "req"></span>
+            </label>
+            <input type = "text" id = "username" name = "username" placeholder = "Name" [(ngModel)] = "inputusername" required autocomplete = "off"/>
+          </div>
+
+          <div class = "field-wrap">
+            <label>
+              <span class = "req"></span>
+            </label>
+            <input type = "text" id = "email" name = "email" placeholder = "E-mail" [(ngModel)] = "inputemail" required autocomplete = "off"/>
+          </div>
+
+          <div class = "field-wrap">
+            <label>
+              <span class = "req"></span>
+            </label>
+            <input type = "password" name = "password" placeholder = "Password" [(ngModel)] = "inputpassword" required autocomplete = "off"/>
+          </div>
+
+          <div class = "field-wrap">
+            <label>
+              <span class = "req"></span>
+            </label>
+            <input type = "password" id = "password" name = "password" placeholder = "Confirm Password" [(ngModel)] = "inputrepassword" required autocomplete = "off"/>
+          </div>
+
+          <button type = "submit" class = "button button-block"  (click) = "registersave()" >Register</button>
+          <!--(click) = "checkemail(inputemail)"-->
+        </form>
+      </div>
+    </div>
+</div>
+
